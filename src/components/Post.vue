@@ -1,11 +1,11 @@
 <template>
     <div class="article">
-        <a :href="url"><img v-bind:src="imgURL" v-bind:alt="article.title"></a>
+        <router-link :to="url"><img v-bind:src="imgURL" v-bind:alt="article.title"></router-link>
         <div class="details">
-            <a :href="url"><h1 class="title"> {{ article.title.toUpperCase() }} </h1></a>
+            <router-link :to="url"><h1 class="title"> {{ article.title.toUpperCase() }} </h1></router-link>
             <p class="date">{{ date }}</p>
             <p class="tags">
-                <a v-for="tag in article.tags" v-bind:href="`/${tag}`" class="tag" v-bind:key="tag">{{ `#${tag}` }}</a>
+                <router-link v-for="tag in article.tags" v-bind:to="`/${tag}`" class="tag" v-bind:key="tag">{{ `#${tag}` }}</router-link>
             </p>
             <p class="description">{{ article.description }}</p>
         </div>
@@ -25,7 +25,7 @@ export default {
          return `${(new Date(this.article.createdAt)).toDateString().slice(4, 15)}`;
      },
      url () {
-         return `/articles/${this.article.title.toLowerCase().split(' ').join('_')}`
+         return `/article/${this.article.title.toLowerCase().split(' ').join('_')}`
      }
   }
 }

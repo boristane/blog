@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <div class="container">
-      <Post v-for="article in articles" :key="article.id" :article="article"></Post>
+      <router-view :articles="articles"/>
     </div>
     <Footer></Footer>
   </div>
@@ -11,11 +11,10 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-import Post from './components/Post.vue';
 
 export default {
   name: 'app',
-  data () {
+    data () {
     return {
       articles: '',
     }
@@ -23,7 +22,6 @@ export default {
   components: {
     Header,
     Footer,
-    Post,
   },
   created () {
     const apiURL = 'http://127.0.0.1:3000';
