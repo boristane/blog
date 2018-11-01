@@ -51,8 +51,13 @@ export default {
 .container {
   max-width: 600px;
   margin: 20px auto;
-  position: relative;
   padding: 0 20px;
   text-align: left;
+}
+
+@media screen and (max-width: 420px){
+  #app {
+    margin-top: 10px;
+  }
 }
 </style>

@@ -24,7 +24,7 @@ export default {
          return `${(new Date(this.article.createdAt)).toDateString().slice(4, 15)}`;
      },
      url () {
-         return `/article/${this.article.title.toLowerCase().split(' ').join('_')}`
+         return `/article/${this.article.title.toLowerCase().split(' ').join('_')}`;
      }
   }
 }
@@ -54,7 +54,7 @@ export default {
 
 .post {
     display: grid;
-    grid-template-columns: 150px auto;
+    grid-template-columns: 120px auto;
     border-bottom: 1px solid lightgray;
     padding: 30px 0;
     box-sizing: border-box;
@@ -68,7 +68,6 @@ export default {
 
 img {
     max-width: 120px;
-    border-radius: 7px;
 }
 
 .title {

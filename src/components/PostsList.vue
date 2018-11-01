@@ -16,6 +16,9 @@ export default {
       'articles',
       'apiURL',
   ],
+  beforeCreate () {
+      document.title = 'Boris Tane';
+  },
 }
 </script>
 

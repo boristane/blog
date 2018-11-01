@@ -3,8 +3,9 @@
         <a href="/">BORIS TANE</a>
         <p class="links">
             <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe-africa"></i></a>
-            <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-suitcase"></i></a>
             <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-flask"></i></a>
+            <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-palette"></i></a>
+            <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-suitcase"></i></a>  
         </p>
     </div>
 </template>
@@ -60,7 +61,7 @@ export default {
 
 @media screen and (max-width: 420px) {
     .header {
-        margin-top: 40px;
+        margin-top: 20px;
     }
 }
 </style>

@@ -7,7 +7,10 @@
 
 <script>
 export default {
-  name: 'Page404'
+  name: 'Page404',
+  beforeCreate () {
+      document.title = 'Oops ! 404';
+  }
 }
 </script>
 
