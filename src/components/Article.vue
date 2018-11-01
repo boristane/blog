@@ -7,7 +7,6 @@
 
 <script>
 import showdown from 'showdown';
-const apiURL = 'http://127.0.0.1:3000';
 
 function loadFile(filePath) {
   let result = null;
@@ -31,6 +30,7 @@ export default {
   },
   props: [
       'articles',
+      'apiURL',
   ],
   computed: {
       article () {
@@ -41,11 +41,14 @@ export default {
          return `${(new Date(this.article.createdAt)).toDateString().slice(4, 15)}`;
      },
       md () {
-          return loadFile(`${apiURL}/${this.article.content}`);
+          return loadFile(`${this.article.content}`);
       },
       html () {
           return converter.makeHtml(this.md);
-      }
+      },
+      imgURL () {
+          return `${this.article.image}`;
+      },
   }
 }
 </script>

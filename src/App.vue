@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <div class="container">
-      <router-view :articles="articles"/>
+      <router-view :articles="articles" :apiURL="apiURL"/>
     </div>
     <Footer></Footer>
   </div>
@@ -17,6 +17,7 @@ export default {
     data () {
     return {
       articles: '',
+      apiURL: 'https://boristane-blog-api.herokuapp.com',
     }
   },
   components: {
@@ -24,11 +25,14 @@ export default {
     Footer,
   },
   created () {
-    const apiURL = 'http://127.0.0.1:3000';
-    fetch(`${apiURL}/articles`)
+    fetch(`${this.apiURL}/articles`)
         .then(data => data.json())
         .then((data) => {
-            this.articles = data.articles;
+            this.articles = data.articles.sort((a, b) => {
+              const dateA = new Date(a.createdAt);
+              const dateB = new Date(b.createdAt);
+              return dateB.getTime() - dateA.getTime();
+            });
         });
   }
 };

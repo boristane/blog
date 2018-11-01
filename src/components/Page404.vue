@@ -1,12 +1,13 @@
 <template>
     <div class="page">
         Oops ! Page not found...
+        <div class="small">yes, it's a 404.</div>
     </div>
 </template>
 
 <script>
 export default {
-  name: '404'
+  name: 'Page404'
 }
 </script>
 
@@ -14,5 +15,9 @@ export default {
 .page {
     font-size: 5em;
     color: lightgray;
+}
+
+.small {
+    font-size: 50px;
 }
 </style>

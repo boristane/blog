@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Post v-for="article in articles" :key="article.id" :article="article"></Post>
+        <Post v-for="article in articles" :key="article.id" :article="article" :apiURL="apiURL"></Post>
     </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   },
   props: [
       'articles',
+      'apiURL',
   ],
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="article">
+    <div class="post">
         <router-link :to="url"><img v-bind:src="imgURL" v-bind:alt="article.title"></router-link>
         <div class="details">
             <router-link :to="url"><h1 class="title"> {{ article.title.toUpperCase() }} </h1></router-link>
@@ -13,13 +13,12 @@
 </template>
 
 <script>
-const apiURL = 'http://127.0.0.1:3000';
 export default {
   name: 'Post',
-  props: ['article'],
+  props: ['article', 'apiURL'],
   computed: {
      imgURL () {
-         return `${apiURL}/${this.article.image}`;
+         return `${this.article.image}`;
      },
      date () {
          return `${(new Date(this.article.createdAt)).toDateString().slice(4, 15)}`;
@@ -32,36 +31,36 @@ export default {
 </script>
 
 <style scoped>
-.article a {
+.post a {
     font-size: 15px;
     text-decoration: none;
 }
 
-.article a:link {
+.post a:link {
     color: #444;
 }
 
-.article a:visited {
+.post a:visited {
     color: #444;
 }
 
-.article a:active {
+.post a:active {
     color: #444;
 }
 
-.article a:hover {
+.post a:hover {
     color: rgb(253, 101, 101);
 }
 
-.article {
+.post {
     display: grid;
-    grid-template-columns: 120px auto;
+    grid-template-columns: 150px auto;
     border-bottom: 1px solid lightgray;
     padding: 30px 0;
     box-sizing: border-box;
 }
 
-.article .details {
+.post .details {
     vertical-align: top;
     padding: 0 0 0 15px;
     max-width: 450px;
@@ -117,7 +116,7 @@ img {
     cursor: pointer;
 }
 @media screen and (max-width: 420px) {
-    .article {
+    .post {
         padding: 15px 0 5px 0;
         grid-template-columns: 80px auto;
     }
@@ -132,7 +131,7 @@ img {
         padding-left: 10px;
     }
 
-    .article a {
+    .post a {
         font-size: 10px;
     }
 
