@@ -5,7 +5,7 @@
             <router-link :to="url"><h1 class="title"> {{ article.title.toUpperCase() }} </h1></router-link>
             <p class="date">{{ date }}</p>
             <p class="tags">
-                <router-link v-for="tag in article.tags" v-bind:to="`/${tag}`" class="tag" v-bind:key="tag">{{ `#${tag}` }}</router-link>
+                <router-link v-for="tag in article.tags" v-bind:to="{name: 'tag', params: { tag: tag}}" class="tag" v-bind:key="tag">{{ `#${tag}` }}</router-link>
             </p>
             <p class="description">{{ article.description }}</p>
         </div>

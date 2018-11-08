@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Post v-for="article in articles" :key="article.id" :article="article" :apiURL="apiURL"></Post>
+        <Post v-for="article in articlesToDisplay" :key="article.id" :article="article" :apiURL="apiURL"></Post>
     </div>
 </template>
 
@@ -18,6 +18,18 @@ export default {
   ],
   beforeCreate () {
       document.title = 'Boris Tane';
+  },
+  computed: {
+      tag () {
+          return this.$route.params.tag;
+      },
+      articlesToDisplay () {
+          if (!this.tag) {
+              return this.articles;
+          }
+          if (!this.articles) return [];
+          return this.articles.filter(article => article.tags.indexOf(this.tag) > -1);
+      }
   },
 }
 </script>
