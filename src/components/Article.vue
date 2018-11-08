@@ -3,8 +3,16 @@
         <p class="date">{{ date }}</p>
         <img class="header-image" :src="imgURL" alt="img">
         <div v-html="html"></div>
-        <div v-show="index > 0" class="navigation" id="newer" @click="newer()">&#8810; NEWER</div>
-        <div v-show="index < this.articles.length - 1" class="navigation" id="older" @click="older()">OLDER &#8811;</div>
+        <div v-show="index > 0" class="navigation" id="newer">
+            <router-link :to="{ name: 'article', params: { article: newer }}">
+                &#8810; NEWER
+            </router-link>
+        </div>
+        <div v-show="index < this.articles.length - 1" class="navigation" id="older">
+            <router-link :to="{ name: 'article', params: { article: older }}">
+                OLDER &#8811;
+            </router-link>
+        </div>
     </div>
 </template>
 
@@ -16,7 +24,7 @@ function loadFile(filePath) {
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open("GET", filePath, false);
   xmlhttp.send();
-  if (xmlhttp.status==200) {
+  if (xmlhttp.status == 200) {
     result = xmlhttp.responseText;
   }
   return result;
@@ -37,48 +45,50 @@ export default {
   ],
   computed: {
       article () {
-          if(this.articles) return this.articles.find(article => article.title.toLowerCase() === this.articleTitle);
-          else return {};
+        if (!this.articles) return {};
+        return this.articles.find(article => article.title.toLowerCase() === this.articleTitle);
       },
       date () {
-         return `${(new Date(this.article.createdAt)).toDateString().slice(4, 15)}`;
-     },
+        return `${(new Date(this.article.createdAt)).toDateString().slice(4, 15)}`;
+      },
       md () {
-          return loadFile(`${this.article.content}`);
+        return loadFile(`${this.article.content}`);
       },
       html () {
-          return converter.makeHtml(this.md);
+        return converter.makeHtml(this.md);
       },
       imgURL () {
-          return `${this.article.image}`;
+        return `${this.article.image}`;
       },
       index () {
-          return this.articles.indexOf(this.article);
+        return this.articles.indexOf(this.article);
+      },
+      newer () {
+        if (this.index < 1) {
+          return '';
+        }
+        return this.articles[this.index - 1].title.split(' ').join('_').toLowerCase();
+      },
+      older () {
+        if (this.index >= this.articles.length - 1) {
+          return '';
+        }
+        return this.articles[this.index + 1].title.split(' ').join('_').toLowerCase();
       }
   },
   created () {
       document.title = this.articleTitle;
   },
-  methods: {
-    newer () {
-        if(this.articles) {
-            if (this.index >= 1) {
-                const articleTo = this.articles[this.index - 1];
-                this.$router.push(`/article/${articleTo.title.toLowerCase().split(' ').join('_')}`);
-                location.reload();
+  watch: {
+        $route () {
+            this.articleTitle = this.$route.params.article.split('_').join(' ');
+        },
+        article () {
+            if (!this.article) {
+                this.$router.push({ name: '404'});
             }
         }
-    },
-    older () {
-        if(this.articles) {
-            if (this.index < this.articles.length - 1) {
-                const articleTo = this.articles[this.index + 1];
-                this.$router.push(`/article/${articleTo.title.toLowerCase().split(' ').join('_')}`);
-                location.reload();
-            }
-        }
-    },
-  }
+    }
 }
 </script>
 
@@ -97,11 +107,6 @@ export default {
     position: fixed;
     bottom: 30px;
     cursor: pointer;
-}
-
-.article .navigation:hover {
-    border-bottom-color: rgb(253, 101, 101);
-    color: rgb(253, 101, 101);
 }
 
 #newer {

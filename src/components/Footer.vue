@@ -25,6 +25,8 @@ export default {
 .links a:link {
     padding: 5px;
     color: lightgrey;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
 }
 
 .links a:visited {
