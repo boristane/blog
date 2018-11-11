@@ -1,11 +1,11 @@
 <template>
     <div class="header">
-        <a href="/">BORIS TANE</a>
+        <a href="https://blog.boristane.com/">BORIS TANE</a>
         <p class="links">
-            <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe-africa"></i></a>
-            <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-flask"></i></a>
-            <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-palette"></i></a>
-            <a href="/" target="_blank" rel="noopener noreferrer"><i class="fas fa-suitcase"></i></a>  
+            <a href="https://boristane.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe-africa"></i></a>
+            <a href="https://boristane.com/views/lab.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-flask"></i></a>
+            <a href="https://art.boristane.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-palette"></i></a>
+            <a href="https://boristane.com/views/projects.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-suitcase"></i></a>  
         </p>
     </div>
 </template>
@@ -30,27 +30,16 @@ export default {
 }
 
 .header a:link {
-    color: #444;
+    padding: 5px;
+    color: lightgrey;
+    transition: color 0.2s ease-in-out;
 }
 
 .header a:visited {
-    color: #444;
+    color: lightgrey;
 }
 
 .header a:active {
-    color: #444;
-}
-
-.links a:link {
-    padding: 5px;
-    color: lightgrey;
-}
-
-.links a:visited {
-    color: lightgrey;
-}
-
-.links a:active {
     color: lightgrey;
 }
 

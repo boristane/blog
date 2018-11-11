@@ -32,7 +32,6 @@ export default {
 
 <style scoped>
 .post a {
-    font-size: 15px;
     text-decoration: none;
 }
 
@@ -71,8 +70,8 @@ img {
 }
 
 .title {
-    font-weight: normal;
-    font-size: 28px;
+    font-weight: 350;
+    font-size: 22px;
     margin: 0;
     border-left: 5px solid rgba(253, 101, 101, 0);
     padding-left: 10px;
@@ -81,13 +80,13 @@ img {
 
 .title:hover {
     color: #444;
-    border-left: 5px solid rgb(253, 101, 101);
+    border-left: 2px solid rgb(253, 101, 101);
 }
 
 .date {
     display: inline-block;
     color: lightgray;
-    font-size: 17px;
+    font-size: 15px;
     margin: 0;
     padding-left: 15px;
 }
@@ -101,10 +100,10 @@ img {
 
 .tags {
     margin: 0;
-    font-size: 13px;
+    font-size: 12px;
     text-align: right;
     display: inline-block;
-    padding-left: 15px;
+    padding-left: 5px;
 }
 
 .tag {

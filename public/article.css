@@ -56,3 +56,15 @@
     padding-left: 15px;
     list-style-type: none;
 }
+
+.article p img {
+    width: 100%;
+}
+
+.article p, ul {
+    line-height: 25px;
+}
+
+.article em {
+    color: grey;
+}

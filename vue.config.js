@@ -1,3 +1,6 @@
 module.exports = {
-    productionSourceMap: false
+    productionSourceMap: false,
+    baseUrl: process.env.NODE_ENV === 'production'
+    ? '/'
+    : '/'
 };
