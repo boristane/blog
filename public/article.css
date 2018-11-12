@@ -61,6 +61,7 @@
     width: 100%;
 }
 
+.article p, ol,
 .article p, ul {
     line-height: 25px;
 }

@@ -2,13 +2,15 @@
   <div id="app">
     <Header></Header>
     <div class="container">
-      <router-view :articles="articles" :apiURL="apiURL"/>
+      <scale-loader :loading="loading" :color="spinnerColor"></scale-loader>
+      <router-view :articles="articles" :apiURL="apiURL" v-show="!loading"/>
     </div>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
+import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 
@@ -18,11 +20,14 @@ export default {
     return {
       articles: '',
       apiURL: 'https://boristane-blog-api.herokuapp.com',
+      spinnerColor: 'rgb(250, 90, 95)',
+      loading: true,
     }
   },
   components: {
     Header,
     Footer,
+    ScaleLoader,
   },
   created () {
     fetch(`${this.apiURL}/articles`)
@@ -33,8 +38,9 @@ export default {
               const dateB = new Date(b.createdAt);
               return dateB.getTime() - dateA.getTime();
             });
+            this.loading = false;
         });
-  }
+  },
 };
 </script>
 

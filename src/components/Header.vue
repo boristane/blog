@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <a href="https://blog.boristane.com/">BORIS TANE</a>
+        <a href="/">BORIS TANE</a>
         <p class="links">
             <a href="https://boristane.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe-africa"></i></a>
             <a href="https://boristane.com/views/lab.html" target="_blank" rel="noopener noreferrer"><i class="fas fa-flask"></i></a>
