@@ -76,9 +76,6 @@ export default {
         return this.articles[this.index + 1].title.split(' ').join('_').toLowerCase();
       }
   },
-  created () {
-      document.title = this.articleTitle;
-  },
   watch: {
         $route () {
             this.articleTitle = this.$route.params.article.split('_').join(' ');
@@ -87,6 +84,7 @@ export default {
             if (!this.article) {
                 this.$router.push({ name: '404'});
             }
+            document.title = this.articleTitle;
         }
     }
 }

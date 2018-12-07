@@ -24,3 +24,8 @@ npm run test
 ```
 npm run lint
 ```
+
+### Deploys to Github pages
+```
+./deploy.sh
+```
