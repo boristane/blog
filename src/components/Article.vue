@@ -101,7 +101,6 @@ export default {
     border-bottom: 2px solid transparent;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    width: 75px;
     position: fixed;
     bottom: 30px;
     cursor: pointer;
