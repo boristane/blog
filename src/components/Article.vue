@@ -43,6 +43,9 @@ export default {
       'articles',
       'apiURL',
   ],
+  mounted () {
+    document.title = this.articleTitle;
+  },
   computed: {
       article () {
         if (!this.articles) return {};
