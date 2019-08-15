@@ -1,72 +1,89 @@
 .article {
-    border-bottom: 2px solid rgb(253, 101, 101);
-    padding-bottom: 40px;
+  border-bottom: 2px solid rgb(253, 101, 101);
+  padding-bottom: 40px;
 }
 
-.article pre { 
-    font-family: monospace;
-    background-color: black;
-    padding: 15px;
-    border-radius: 5px;
-    overflow-x: auto;
+.article pre {
+  font-family: monospace;
+  background-color: black;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
 }
 
-.article h1, h2, h3, h4 {
-    font-weight: normal;
-    margin-top: 40px;
+.article h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  margin-top: 40px;
 }
 
 .article h1 {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    font-size: 50px;
-    color: black
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 50px;
+  color: black;
 }
 
 .article h2 {
-    border-left: 5px solid rgb(253, 101, 101);
-    padding-left: 15px;
+  border-left: 5px solid rgb(253, 101, 101);
+  padding-left: 15px;
 }
 
 .article .language-bash,
 .article .language-js {
-    color: white;
+  color: white;
 }
 
 .article a {
-    color: rgb(253, 101, 101);
-    border-bottom: 2px solid transparent;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
+  color: rgb(253, 101, 101);
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .article a:hover {
-    border-bottom-color: rgb(253, 101, 101);
+  border-bottom-color: rgb(253, 101, 101);
 }
 
 .article strong {
-    font-weight: 600;
-    color: #444;
+  font-weight: 600;
+  color: #444;
 }
 
 .article ol {
-    padding-left: 1.6em;
+  padding-left: 1.6em;
 }
 
 .article ul {
-    padding-left: 15px;
-    list-style-type: none;
+  padding-left: 15px;
+  list-style-type: none;
 }
 
 .article p img {
-    width: 100%;
+  width: 100%;
 }
 
-.article p, ol,
-.article p, ul {
-    line-height: 25px;
+.article p,
+ol,
+.article p,
+ul {
+  line-height: 25px;
 }
 
 .article em {
-    color: grey;
+  color: grey;
+}
+
+.article blockquote {
+  margin: 0;
+  display: block;
+  padding-block-start: 0.5em;
+  padding-block-end: 0.5em;
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
+  font-style: italic;
+  font-weight: bold;
+  background-color: #efeeee;
 }
