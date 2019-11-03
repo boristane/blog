@@ -19,7 +19,7 @@ export default {
     data () {
     return {
       articles: '',
-      apiURL: 'https://boristane-blog-api.herokuapp.com',
+      apiURL: 'https://glddw4ljnl.execute-api.eu-west-2.amazonaws.com/prod',
       spinnerColor: 'rgb(250, 90, 95)',
       loading: true,
     }
